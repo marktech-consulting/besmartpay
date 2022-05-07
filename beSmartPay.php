@@ -254,8 +254,6 @@ function initialize_gateway_class() {
       'customer' => $customer->Id,
       'setup_future_usage' => 'off_session',
       'payment_method_types' => ['card'],
-      'off_session' => true,
-      'confirm' => true,
       'payment_method' => $method->id,
       'amount' =>  $get_rate,
       'currency' => 'usd',
@@ -269,17 +267,6 @@ function initialize_gateway_class() {
       ],
     ]);
 
-      /*$charge = \Stripe\Charge::create([
-      "amount" => floatval($customer_order->order_total),
-      "currency" => "usd",
-      "source" => $maincreate->payment_method,
-      "application_fee_amount" => $application_fee,
-      "transfer_data" => [
-      "destination" => $this->customer_id,
-      //"source" => $maincreate->payment_method,
-      ],
-     ]);
-    */
   $stripes = new \Stripe\StripeClient(
     'sk_test_51IGQxoAVYXU25aJ6Je71QDkHF2vkUMB0ZWhBBf9oGsKblbaAYxVDrSp0hy8cZtPnNFxqb8TsmP1nuBVZuZ2mCjre00Y7qm2uKn'
     );
