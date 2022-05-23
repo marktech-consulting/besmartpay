@@ -3,7 +3,7 @@ class WC_besmart_Gateway extends WC_Payment_Gateway
 {
 
     public function __construct()
-    {
+    {  
 
         $this->id = 'besmart'; // payment gateway ID
         $this->icon = ''; // payment gateway icon
