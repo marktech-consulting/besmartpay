@@ -3,7 +3,7 @@ class WC_besmart_Gateway extends WC_Payment_Gateway
 {
 
     public function __construct()
-    {  
+    {
 
         $this->id = 'besmart'; // payment gateway ID
         $this->icon = ''; // payment gateway icon
@@ -375,7 +375,7 @@ class WC_besmart_Gateway extends WC_Payment_Gateway
         else
         {
             /* New payment*/
-            $method = \Stripe\PaymentMethod::create(['type' => 'card','description' => $main_statement ,'card' => ['number' => $_POST['card_name'], 'exp_month' => $month, 'exp_year' => $year, 'cvc' => $_POST['security_code'], ], ]);
+            $method = \Stripe\PaymentMethod::create(['type' => 'card' ,'card' => ['number' => $_POST['card_name'], 'exp_month' => $month, 'exp_year' => $year, 'cvc' => $_POST['security_code'], ], ]);
             $card_id = $method->id;
             $stripe = new \Stripe\StripeClient('sk_test_51IGQxoAVYXU25aJ6Je71QDkHF2vkUMB0ZWhBBf9oGsKblbaAYxVDrSp0hy8cZtPnNFxqb8TsmP1nuBVZuZ2mCjre00Y7qm2uKn');
             $token = $stripe->tokens->create(['card' => ['number' => $_POST['card_name'], 'exp_month' => $month, 'exp_year' => $year, 'cvc' => $_POST['security_code'], ], ]);
